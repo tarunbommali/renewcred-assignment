@@ -79,7 +79,7 @@ docker-compose up --build
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/renewcred_cms
+MONGO_URI=mongodb+srv://<username>:<password>@clusterserver.b8lveei.mongodb.net
 JWT_SECRET=renewcred_jwt_super_secret_key_2026
 NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```

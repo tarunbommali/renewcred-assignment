@@ -1,12 +1,4 @@
 services:
-  mongodb:
-    image: mongo:latest
-    container_name: renewcred_mongodb
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-
   backend:
     build: ./backend
     container_name: renewcred_backend
@@ -16,8 +8,6 @@ services:
       - PORT=5000
       - MONGO_URI=mongodb+srv://tarunbommalidev_db_user:HLLz10iQH8WfVX09@clusterserver.b8lveei.mongodb.net
       - JWT_SECRET=renewcred_jwt_super_secret_key_2026
-    depends_on:
-      - mongodb
 
   nextjs_app:
     build: ./next-app
@@ -28,6 +18,3 @@ services:
       - NEXT_PUBLIC_API_URL=http://localhost:5000/api
     depends_on:
       - backend
-
-volumes:
-  mongo_data:
